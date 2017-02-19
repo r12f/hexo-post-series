@@ -2,6 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/hexo-post-series.svg)](http://badge.fury.io/js/hexo-post-series)
 
+This plugin is made for adding your post to a series and display it anywhere you like in your post.
+
 ## Installation
 
 ``` bash
@@ -20,6 +22,12 @@ tags:
   - tag2
 series: test-posts
 ---
+```
+
+### Show post series in your post
+To show all the posts in the same series as the current post, just add the following tag into your post anywhere you like.
+```
+{% post_series %}
 ```
 
 ### Series list and styles
