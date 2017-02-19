@@ -27,7 +27,7 @@ series: test-posts
 ### Show post series in your post
 To show all the posts in the same series as the current post, just add the following tag into your post anywhere you like.
 ```
-{% post_series %}
+{% posts_in_same_series %}
 ```
 
 ### Series list and styles
@@ -46,7 +46,7 @@ The post series list is constructed as following. To change its appearance, we c
 The configurations we supported now are quite simple.
 * list_title: Specify the title you'd like to show before the list. If list title is empty, we won't generate the post-series-title div.
 * open_in_new_tab: If true, a ```target="_blank"``` will be put into the anchor.
-* reverse_sort: If true, the most recent created post will be put at first, otherwise, the least recent create post.
+* reverse_sort: If true, the most recent created post will be put at first, otherwise, the least recent created post.
 
 Here is a sample:
 ```

@@ -34,7 +34,7 @@ hexo.extend.filter.register('before_post_render', function(postInfo) {
     }
 });
 
-hexo.extend.tag.register('post_series', function (args) {
+hexo.extend.tag.register('posts_in_same_series', function (args) {
     var postInfo = this;
 
     if (postInfo.postsInSameSeries.size === 0) {
