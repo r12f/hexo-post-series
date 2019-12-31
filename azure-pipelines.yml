@@ -46,12 +46,12 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: '**\*.tgz'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)\Packages'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish NuGet Packages'
+  displayName: 'Publish npm packages'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)\Packages'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
