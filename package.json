@@ -1,6 +1,6 @@
 {
   "name": "hexo-post-series",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "A hexo plugin for creating post series.",
   "main": "index.js",
   "scripts": {
@@ -26,3 +26,4 @@
   },
   "homepage": "https://github.com/r12f/hexo-post-series#readme"
 }
+
