@@ -50,14 +50,6 @@ steps:
     flattenFolders: true
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 
-- task: CopyFiles@2
-  displayName: 'Copy package.json'
-  inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: 'package.json' 
-    targetFolder: '$(Build.ArtifactStagingDirectory)'
-  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-
 - task: PublishBuildArtifacts@1
   displayName: 'Publish npm packages'
   inputs:
