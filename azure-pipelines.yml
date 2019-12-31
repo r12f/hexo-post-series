@@ -1,0 +1,38 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+variables:
+  buildVersionMajor: 1
+  buildVersionMinor: 0
+  buildVersionRevision: $[counter(format('{0}.{1}', variables['buildVersionMajor'], variables['buildVersionMinor']), 0)]
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+# Job
+name: '$(buildVersionMajor).$(buildVersionMinor).$(buildVersionRevision)'
+
+steps:
+# Updating build version
+- task: PowerShell@2
+  displayName: 'Increase version number'
+  inputs:
+    targetType: 'filePath'
+    filePath: '$(Build.SourcesDirectory)\Build\Update-BuildRevisionVersion.ps1'
+    arguments: '$(buildVersionMajor).$(buildVersionMinor).$(buildVersionRevision)'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm pack
+  displayName: 'npm install and pack'
