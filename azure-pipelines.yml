@@ -23,7 +23,7 @@ steps:
   displayName: 'Increase version number'
   inputs:
     targetType: 'filePath'
-    filePath: '$(Build.SourcesDirectory)\Build\Update-BuildRevisionVersion.ps1'
+    filePath: '$(Build.SourcesDirectory)/Build/Update-BuildRevisionVersion.ps1'
     arguments: '$(buildVersionMajor).$(buildVersionMinor).$(buildVersionRevision)'
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 
