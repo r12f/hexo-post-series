@@ -45,7 +45,7 @@ steps:
   displayName: 'Copy npm packages to artifact staging folder'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '**\*.tgz'
+    Contents: '*.tgz'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
