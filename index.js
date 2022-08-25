@@ -41,10 +41,13 @@ hexo.extend.tag.register('posts_in_same_series', function (args) {
     log.log(postsInSameSeries.length + " posts found in the same series, post series updated: " + postInfo.path);
 
     postsInSameSeries.sort(function (left, right) {
-        if (config.reverse_sort) {
-            return left.date < right.date;
+        if (left.date == right.date) {
+            return 0;
         }
-        return left.date > right.date;
+        if (config.reverse_sort) {
+            return left.date < right.date ? 1 : -1;
+        }
+        return left.date > right.date ? 1 : -1;
     });
 
     var config = hexo.config.post_series;
